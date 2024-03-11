@@ -6,7 +6,8 @@ export default class Input extends Component {
         super();
 
         this.state = {
-            value: ''
+            value: '',
+            isTouched: false
         }
     }
 
@@ -14,21 +15,29 @@ export default class Input extends Component {
         const value = e.target.value
         const id = this.props.id
 
-        this.setState({value})
-        this.props.setValueToObj({field: id, value})
+
+        this.setState({ value, isTouched: true });
+        this.props.setValueToObj({ field: this.props.id, value, touched: true });
     }
 
     render () {
-        const {label, id, type = 'text'} = this.props
+        const {label, id, type = 'text'} = this.props;
+        const {value, isTouched} = this.state;
+
+        const hasError = isTouched && !value;
+
+        const errorClass = `input ${hasError ? 'error' : ''}`;
 
         return (
             <div className={'input-container'}>
                 <input
-                    id={id} type={type}
+                    id={id}
+                    type={type}
                     value={this.state.value}
                     onChange={this.onSetValueToObj}
+                    className={errorClass}
                 />
-                <label htmlFor={id}> {label} </label>
+                <label htmlFor={id} className={errorClass}> {label} </label>
             </div>
         )
     }

@@ -40,6 +40,8 @@ export default class App extends Component {
     }
 
     render() {
+        const isFormComplete = Object.values(this.state.formObj).every(value => value);
+
         return (
             <form onSubmit={this.sendForm}  className={'main-form'}>
                 <div className={'main-form-part full'}>
@@ -72,7 +74,10 @@ export default class App extends Component {
                 </div>
                 <div className={'horizontalLine'}/>
                 <div className={'main-form-part'}>
-                    <button type={'submit'}> Submit</button>
+                    <button type={'submit'}
+                            className={!isFormComplete ? 'inactive' : ''}
+                            disabled={!isFormComplete}
+                    > Submit</button>
                 </div>
             </form>
         )

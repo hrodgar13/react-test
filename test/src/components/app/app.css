@@ -54,3 +54,10 @@ button:hover {
     transition: ease-out 400ms;
     color: white;
 }
+
+button.inactive {
+    color: white;
+    border-color: lightgrey;
+    background: lightgrey;
+    cursor: not-allowed;
+}

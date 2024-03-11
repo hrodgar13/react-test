@@ -15,3 +15,8 @@
 .input-container label {
     color: grey;
 }
+
+.error {
+    color: red !important;
+    border-color: red !important;
+}
