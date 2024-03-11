@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import './app.css'
 import {Title} from "../title/title";
 import Input from "../input/input";
+import {Logo} from "../logo/logo";
 
 export default class App extends Component {
 
@@ -44,6 +45,9 @@ export default class App extends Component {
 
         return (
             <form onSubmit={this.sendForm}  className={'main-form'}>
+                <div className={'logo-block'}>
+                    <Logo />
+                </div>
                 <div className={'main-form-part full'}>
                     <div className={'structure-block full'}>
                         <Title title={'Full name'}/>
