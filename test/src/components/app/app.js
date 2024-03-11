@@ -64,7 +64,7 @@ export default class App extends Component {
                     </div>
                     <div className={'structure-block half'}>
                         <Title title={'Phone number'}/>
-                        <Input setValueToObj={this.setValueToObj} id={'phone'}/>
+                        <Input usePhoneMask={true} setValueToObj={this.setValueToObj} id={'phone'}/>
                     </div>
 
                     <div className={'structure-block half'}>
